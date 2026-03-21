@@ -1,0 +1,7 @@
+{
+    "name": "geekheroes/store",
+    "description": "Geek Heroes Store MVP",
+    "require": {
+        "php": "^8.2"
+    }
+}

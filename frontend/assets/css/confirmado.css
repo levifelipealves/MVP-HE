@@ -1,0 +1,45 @@
+/* confirmado.css */
+
+#order-summary {
+    max-width: 640px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+.order-confirmed {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.confirmed-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+.confirmed-title { font-size: 1.75rem; font-weight: 700; color: var(--brand-green); margin-bottom: .5rem; }
+.confirmed-sub   { color: var(--gray-500); margin-bottom: 2rem; }
+
+.order-info {
+    text-align: left;
+    border-top: 1px solid var(--gray-200);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+.order-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: .75rem; }
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 0;
+    border-bottom: 1px solid var(--gray-200);
+    font-size: .9375rem;
+}
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1.125rem;
+    padding: .75rem 0 0;
+}
+
+.btn-back { margin-top: 1.5rem; }
