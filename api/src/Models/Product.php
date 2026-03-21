@@ -40,16 +40,19 @@ class ProductModel
         $placeholders = implode(',', array_fill(0, count($ids), '?'));
         $stmt = $this->db->prepare(
             "SELECT id, name, slug, price, price_pix, image, stock
-             FROM products WHERE id IN ($placeholders) AND is_active = 1"
+             FROM products WHERE id IN ($placeholders) AND is_active = 1
+             FOR UPDATE"
         );
         $stmt->execute(array_values($ids));
         return array_column($stmt->fetchAll(), null, 'id');
     }
 
-    public function decrementStock(int $id, int $qty): void
+    public function decrementStock(int $id, int $qty): int
     {
-        $this->db->prepare(
+        $stmt = $this->db->prepare(
             'UPDATE products SET stock = stock - ? WHERE id = ? AND stock >= ?'
-        )->execute([$qty, $id, $qty]);
+        );
+        $stmt->execute([$qty, $id, $qty]);
+        return $stmt->rowCount();
     }
 }
