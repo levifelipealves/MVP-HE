@@ -1,6 +1,15 @@
 <?php declare(strict_types=1);
 
 define('FRONTEND_ROOT', __DIR__);
+
+// Load .env
+foreach (file(dirname(__DIR__) . '/.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [] as $_line) {
+    if (str_starts_with(trim($_line), '#') || !str_contains($_line, '=')) continue;
+    [$_k, $_v] = explode('=', $_line, 2);
+    $_k = trim($_k); $_v = trim($_v);
+    if (!getenv($_k)) { putenv("$_k=$_v"); $_ENV[$_k] = $_v; }
+}
+
 define('API_URL', getenv('API_URL') ?: 'http://api.geekheroes.com.br');
 
 $base  = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/');

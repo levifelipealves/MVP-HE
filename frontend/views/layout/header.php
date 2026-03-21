@@ -21,7 +21,10 @@
     <?php if (!empty($page_css)): ?>
     <link rel="stylesheet" href="<?= $base ?>/assets/css/<?= htmlspecialchars($page_css) ?>">
     <?php endif; ?>
-    <script>window.API_URL = '<?= API_URL ?>';</script>
+    <script>
+        window.API_URL  = '<?= API_URL ?>';
+        window.BASE_URL = '<?= $base ?>';
+    </script>
 </head>
 <body>
 <header class="site-header">

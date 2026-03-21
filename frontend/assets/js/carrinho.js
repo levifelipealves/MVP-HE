@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const items     = Cart.get();
 
     if (items.length === 0) {
-        container.innerHTML = '<div class="cart-empty">Seu carrinho está vazio. <a href="/">Ver produtos</a></div>';
+        container.innerHTML = `<div class="cart-empty">Seu carrinho está vazio. <a href="${window.BASE_URL}/">Ver produtos</a></div>`;
         return;
     }
 
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             subtotal += line;
             itemsHtml += `
                 <div class="cart-item" data-id="${p.id}">
-                    <img src="${p.image || '/assets/images/placeholder.jpg'}" alt="${esc(p.name)}">
+                    <img src="${p.image || (window.BASE_URL + '/assets/images/placeholder.jpg')}" alt="${esc(p.name)}">
                     <div class="cart-item-info">
                         <div class="cart-item-name">${esc(p.name)}</div>
                         <div class="cart-item-price">${money(p.price)} cada</div>
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <h2>Resumo</h2>
                     <div class="summary-row"><span>Subtotal</span><span>${money(subtotal)}</span></div>
                     <div class="summary-row summary-total"><span>Total</span><strong>${money(subtotal)}</strong></div>
-                    <a href="/checkout" class="btn-primary btn-checkout">Finalizar Pedido</a>
+                    <a href="${window.BASE_URL}/checkout" class="btn-primary btn-checkout">Finalizar Pedido</a>
                 </aside>
             </div>
         `;
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (act === 'dec')    Cart.update(id, (cur?.qty || 1) - 1);
                 if (act === 'remove') Cart.remove(id);
                 if (Cart.get().length === 0) {
-                    container.innerHTML = '<div class="cart-empty">Carrinho vazio. <a href="/">Ver produtos</a></div>';
+                    container.innerHTML = `<div class="cart-empty">Carrinho vazio. <a href="${window.BASE_URL}/">Ver produtos</a></div>`;
                 } else { render(); }
             });
         });

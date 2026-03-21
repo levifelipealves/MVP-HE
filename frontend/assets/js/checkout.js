@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const items = Cart.get();
 
     if (items.length === 0) {
-        window.location.href = '/carrinho';
+        window.location.href = window.BASE_URL + '/carrinho';
         return;
     }
 
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             Cart.clear();
-            window.location.href = `/pedido/${json.order_id}`;
+            window.location.href = `${window.BASE_URL}/pedido/${json.order_id}`;
         } catch {
             errorEl.textContent = 'Erro de conexão. Tente novamente.';
             errorEl.hidden = false;

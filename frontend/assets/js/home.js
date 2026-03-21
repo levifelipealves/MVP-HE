@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         grid.innerHTML = products.map(p => `
-            <a href="${location.pathname.replace(/\/$/, '')}/produto/${p.slug}" class="product-card">
-                <img src="${p.image || '/assets/images/placeholder.jpg'}" alt="${esc(p.name)}" loading="lazy">
+            <a href="${window.BASE_URL}/produto/${p.slug}" class="product-card">
+                <img src="${p.image || (window.BASE_URL + '/assets/images/placeholder.jpg')}" alt="${esc(p.name)}" loading="lazy">
                 <div class="product-card-body">
                     <div class="product-card-category">${esc(p.category || '')}</div>
                     <div class="product-card-name">${esc(p.name)}</div>
