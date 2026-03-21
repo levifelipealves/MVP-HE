@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         container.innerHTML = `
             <div class="product-layout">
                 <div class="product-image">
-                    <img src="${p.image || '/assets/images/placeholder.jpg'}" alt="${esc(p.name)}">
+                    <img src="${p.image || (window.BASE_URL + '/assets/images/placeholder.jpg')}" alt="${esc(p.name)}">
                 </div>
                 <div class="product-info">
                     <div class="product-category">${esc(p.category || '')}</div>
