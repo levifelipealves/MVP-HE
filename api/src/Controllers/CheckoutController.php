@@ -85,6 +85,11 @@ class CheckoutController
             db()->commit();
         } catch (\Throwable $e) {
             db()->rollBack();
+            file_put_contents(
+                API_ROOT . '/../storage/pedidos_erro.log',
+                date('Y-m-d H:i:s') . ' | ' . $e->getMessage() . ' | ' . $e->getFile() . ':' . $e->getLine() . PHP_EOL,
+                FILE_APPEND | LOCK_EX
+            );
             json_error('Erro ao processar pedido.', 500);
         }
 
