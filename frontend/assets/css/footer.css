@@ -1,0 +1,217 @@
+/* 🦅 Hawk Protocol: Footer Architectural Soberanity */
+
+.main-footer {
+    position: relative;
+    margin-top: 3rem;
+    /* mt-12 */
+}
+
+.footer-bg-wrap {
+    position: relative;
+    padding-top: 1.5rem;
+    /* Reduzido de 3rem (pt-12) para 1.5rem (pt-6) */
+    padding-bottom: 1rem;
+    /* Reduzido de 2.5rem (pb-10) para 1rem (pb-4) */
+    overflow: hidden;
+    border-top: 4px solid var(--brand-blue);
+}
+
+.footer-bg-img {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.footer-bg-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.footer-container {
+    position: relative;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.footer-logo-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    /* Reduzido de 2rem (mb-8) para 1rem (mb-4) */
+}
+
+.footer-logo-img {
+    height: 64px;
+    /* Reduzido de 96px (h-24) para 64px (h-16) */
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px -1px rgb(0 0 0 / 0.1));
+}
+
+.footer-white-box {
+    background-color: rgb(255 255 255 / 0.95);
+    backdrop-filter: blur(4px);
+    border-radius: 40px;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    border: 1px solid #fff;
+    overflow: hidden;
+}
+
+.footer-grid {
+    padding: 2rem;
+    /* p-8 */
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 2.5rem;
+    /* gap-10 */
+}
+
+@media (min-width: 768px) {
+    .footer-grid {
+        padding: 3rem;
+        /* p-12 */
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.footer-section-title {
+    color: var(--brand-blue);
+    margin-bottom: 1.5rem;
+    /* mb-6 */
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    /* tracking-tighter */
+    font-size: 1.125rem;
+    /* text-lg */
+    font-weight: 900;
+}
+
+.footer-list {
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #374151;
+    /* text-gray-700 */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    /* space-y-3 */
+    text-transform: uppercase;
+    font-weight: 800;
+    /* font-extrabold */
+}
+
+.footer-list a:hover {
+    color: var(--brand-blue);
+    transition-property: color;
+    transition-duration: 150ms;
+}
+
+.footer-contact-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    /* space-y-3 */
+}
+
+.footer-contact-link {
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #374151;
+    /* text-gray-700 */
+    font-weight: 700;
+    /* font-bold */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* gap-2 */
+}
+
+.footer-contact-link a {
+    transition: color 0.15s;
+}
+
+.footer-contact-link a:hover {
+    color: var(--brand-blue);
+}
+
+.footer-wpp-link:hover {
+    color: #25D366 !important;
+}
+
+.footer-time-text {
+    font-size: 11px;
+    color: #9ca3af;
+    /* text-gray-400 */
+    margin-top: 0.25rem;
+}
+
+.footer-payment-badge-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-payment-badge-img {
+    height: 2rem !important;
+    max-height: 2rem !important;
+    width: auto !important;
+    max-width: 120px;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-payment-secure-text {
+    font-size: 0.875rem;
+    color: var(--brand-blue);
+    font-weight: 900;
+}
+
+.footer-payment-methods {
+    font-size: 0.75rem;
+    color: #6b7280;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.footer-social-list {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-social-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+}
+
+.footer-social-btn:hover {
+    transform: scale(1.1);
+}
+
+.footer-insta-btn {
+    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.footer-bottom {
+    background-color: var(--brand-blue);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.footer-bottom-text {
+    font-size: 11px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-align: center;
+}

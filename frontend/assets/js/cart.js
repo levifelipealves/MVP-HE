@@ -1,7 +1,7 @@
 // cart.js — gerenciamento de carrinho via localStorage (global)
 
 const Cart = (() => {
-    const KEY = 'gh_cart';
+    const KEY = 'ghv2_cart';
 
     function get() {
         try { return JSON.parse(localStorage.getItem(KEY)) || []; }
