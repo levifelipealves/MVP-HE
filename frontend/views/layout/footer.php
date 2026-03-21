@@ -78,7 +78,7 @@ $instaLink = $cfg['store_instagram'] ?: '#';
     </div>
 
     <div class="footer-bottom">
-        <div class="max-w-[1200px] mx-auto px-5">
+        <div class="footer-bottom-inner">
             <p class="footer-bottom-text">
                 2026 © <?= htmlspecialchars($cfg['store_name']) ?> — <?= htmlspecialchars($cfg['store_address']) ?> — CNPJ: <?= htmlspecialchars($cfg['store_cnpj']) ?>
             </p>

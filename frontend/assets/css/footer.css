@@ -207,6 +207,14 @@
     padding-bottom: 0.75rem;
 }
 
+.footer-bottom-inner {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
 .footer-bottom-text {
     font-size: 11px;
     color: #fff;

@@ -199,10 +199,28 @@ header img.object-contain:hover {
     border-radius: 50%;
     width: 16px;
     height: 16px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     position: absolute;
     top: -4px;
     right: -6px;
+}
+
+.cart-count.visible {
+    display: flex;
+}
+
+.header-logo-link {
+    flex-shrink: 0;
+}
+
+.header-cart-btn {
+    position: relative;
+}
+
+.cart-total-badge {
+    color: #374151;
+    font-weight: 700;
+    font-size: 11px;
 }

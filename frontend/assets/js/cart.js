@@ -37,8 +37,18 @@ const Cart = (() => {
     function count() { return get().reduce((s, i) => s + i.qty, 0); }
 
     function updateBadge() {
-        const el = document.getElementById('cart-count');
-        if (el) el.textContent = count();
+        const badge = document.getElementById('cart-count-badge');
+        const total = document.getElementById('cart-total-badge');
+        const n     = count();
+        if (badge) {
+            badge.textContent = n;
+            badge.classList.toggle('visible', n > 0);
+        }
+        if (total) {
+            const items = get();
+            // total sem preço aqui — só contagem. Preço atualizado por cada página
+            if (n === 0) total.textContent = 'R$ 0,00';
+        }
     }
 
     // Init badge on load
