@@ -4,18 +4,21 @@ require __DIR__ . '/src/bootstrap.php';
 require __DIR__ . '/src/Models/Product.php';
 require __DIR__ . '/src/Models/Order.php';
 require __DIR__ . '/src/Models/Review.php';
+require __DIR__ . '/src/Middleware/AdminMiddleware.php';
 require __DIR__ . '/src/Controllers/ProductController.php';
 require __DIR__ . '/src/Controllers/CheckoutController.php';
 require __DIR__ . '/src/Controllers/OrderController.php';
 require __DIR__ . '/src/Controllers/ReviewController.php';
+require __DIR__ . '/src/Controllers/AuthController.php';
 
 // CORS
 $origin  = $_SERVER['HTTP_ORIGIN'] ?? '';
 $allowed = getenv('FRONTEND_URL') ?: 'http://localhost';
 if ($origin === $allowed) {
     header("Access-Control-Allow-Origin: $origin");
+    header('Access-Control-Allow-Credentials: true');
 }
-header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(204); exit; }
 
@@ -56,6 +59,36 @@ if ($method === 'GET' && preg_match('#^/reviews/(\d+)$#', $path, $m)) {
 // POST /reviews/{product_id}
 if ($method === 'POST' && preg_match('#^/reviews/(\d+)$#', $path, $m)) {
     (new ReviewController($reviewModel))->create((int) $m[1]);
+}
+
+// POST /admin/login
+if ($method === 'POST' && $path === '/admin/login') {
+    (new AuthController())->login();
+}
+
+// POST /admin/logout
+if ($method === 'POST' && $path === '/admin/logout') {
+    (new AuthController())->logout();
+}
+
+// GET /admin/products
+if ($method === 'GET' && $path === '/admin/products') {
+    (new ProductController($productModel))->listAdmin();
+}
+
+// POST /admin/products
+if ($method === 'POST' && $path === '/admin/products') {
+    (new ProductController($productModel))->createProduct();
+}
+
+// PUT /admin/products/{id}
+if ($method === 'PUT' && preg_match('#^/admin/products/(\d+)$#', $path, $m)) {
+    (new ProductController($productModel))->updateProduct((int) $m[1]);
+}
+
+// DELETE /admin/products/{id}
+if ($method === 'DELETE' && preg_match('#^/admin/products/(\d+)$#', $path, $m)) {
+    (new ProductController($productModel))->deleteProduct((int) $m[1]);
 }
 
 json_error('Rota não encontrada.', 404);

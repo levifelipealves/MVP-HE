@@ -28,6 +28,19 @@ if (isset($routes[$path])) {
 } elseif (preg_match('#^/pedido/(\d+)$#', $path, $m)) {
     $page = 'confirmado';
     $order_id = (int) $m[1];
+} elseif ($path === '/admin/login') {
+    $page = 'admin/login';
+} elseif ($path === '/admin/products') {
+    $page = 'admin/products';
+}
+
+// Admin session guard
+if ($page === 'admin/products') {
+    if (session_status() === PHP_SESSION_NONE) session_start();
+    if (empty($_SESSION['admin'])) {
+        header('Location: ' . $base . '/admin/login');
+        exit;
+    }
 }
 
 if (!$page) {
@@ -36,6 +49,16 @@ if (!$page) {
     require __DIR__ . '/views/layout/header.php';
     echo '<main class="not-found"><h1>404</h1><p>Página não encontrada.</p><a href="' . $base . '/">Voltar</a></main>';
     require __DIR__ . '/views/layout/footer.php';
+    exit;
+}
+
+if ($page === 'admin/login') {
+    require __DIR__ . '/views/admin/loginView.php';
+    exit;
+}
+
+if ($page === 'admin/products') {
+    require __DIR__ . '/views/admin/productCrudView.php';
     exit;
 }
 

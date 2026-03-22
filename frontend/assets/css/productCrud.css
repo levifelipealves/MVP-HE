@@ -1,0 +1,379 @@
+/* ============================================================
+   Product CRUD Admin — productCrud.css
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+}
+
+/* ---- Layout ---- */
+
+.admin-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ---- Top bar ---- */
+
+.admin-topbar {
+    background-color: #0f172a;
+    color: #f8fafc;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.admin-topbar-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0.875rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.admin-topbar-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.admin-logout-form {
+    display: inline;
+}
+
+.admin-logout-btn {
+    padding: 0.375rem 0.875rem;
+    background: transparent;
+    border: 1.5px solid #475569;
+    border-radius: 6px;
+    color: #cbd5e1;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.admin-logout-btn:hover {
+    border-color: #f87171;
+    color: #f87171;
+}
+
+/* ---- Main area ---- */
+
+.admin-main {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* ---- Section toolbar ---- */
+
+.admin-products-section,
+.admin-form-section {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.admin-section-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.admin-section-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* ---- Buttons ---- */
+
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s, border-color 0.2s;
+    border: 1.5px solid transparent;
+    line-height: 1.4;
+}
+
+.admin-btn-primary {
+    background-color: var(--brand-blue, #0044cc);
+    color: #ffffff;
+    border-color: var(--brand-blue, #0044cc);
+}
+
+.admin-btn-primary:hover {
+    background-color: #0036a8;
+    border-color: #0036a8;
+}
+
+.admin-btn-danger {
+    background-color: #dc2626;
+    color: #ffffff;
+    border-color: #dc2626;
+}
+
+.admin-btn-danger:hover {
+    background-color: #b91c1c;
+    border-color: #b91c1c;
+}
+
+.admin-btn-ghost {
+    background-color: transparent;
+    color: #475569;
+    border-color: #cbd5e1;
+}
+
+.admin-btn-ghost:hover {
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+.admin-btn-sm {
+    padding: 0.3rem 0.625rem;
+    font-size: 0.8125rem;
+}
+
+/* ---- Table ---- */
+
+.admin-table-wrapper {
+    overflow-x: auto;
+}
+
+.admin-products-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.admin-th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    background-color: #f8fafc;
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1.5px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.admin-th-actions {
+    text-align: right;
+}
+
+.admin-td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.admin-td-loading {
+    text-align: center;
+    color: #94a3b8;
+    padding: 2rem;
+    font-style: italic;
+}
+
+.admin-td-actions {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.admin-td-actions-group {
+    display: inline-flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.admin-products-table tbody tr:last-child .admin-td {
+    border-bottom: none;
+}
+
+.admin-products-table tbody tr:hover .admin-td {
+    background-color: #f8fafc;
+}
+
+/* Status badge */
+
+.admin-status-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.admin-status-badge-active {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+.admin-status-badge-inactive {
+    background-color: #f1f5f9;
+    color: #94a3b8;
+}
+
+/* ---- Form section ---- */
+
+.admin-form-card {
+    padding: 0;
+}
+
+.admin-form-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.admin-form-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.admin-product-form {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.admin-form-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.admin-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    flex: 1 1 200px;
+    min-width: 0;
+}
+
+.admin-form-field-full {
+    flex: 1 1 100%;
+}
+
+.admin-form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.admin-form-required {
+    color: #dc2626;
+}
+
+.admin-form-input,
+.admin-form-textarea {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    color: #1e293b;
+    background: #f8fafc;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+}
+
+.admin-form-input:focus,
+.admin-form-textarea:focus {
+    border-color: var(--brand-blue, #0044cc);
+    box-shadow: 0 0 0 3px rgba(0, 68, 204, 0.1);
+    background: #ffffff;
+}
+
+.admin-form-textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* Error */
+
+.admin-form-error {
+    font-size: 0.875rem;
+    color: #dc2626;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 0.5rem 0.875rem;
+}
+
+/* Form actions */
+
+.admin-form-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    padding-top: 0.25rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 640px) {
+    .admin-main {
+        padding: 1rem;
+    }
+
+    .admin-topbar-inner {
+        padding: 0.75rem 1rem;
+    }
+
+    .admin-form-row {
+        flex-direction: column;
+    }
+
+    .admin-form-field {
+        flex: 1 1 100%;
+    }
+
+    .admin-section-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
