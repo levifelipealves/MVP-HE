@@ -26,14 +26,12 @@ class ProductController
 
     public function listAdmin(): never
     {
-        AdminMiddleware::check();
         $products = $this->model->listAdmin();
         json_response(['data' => $products, 'count' => count($products)]);
     }
 
     public function createProduct(): never
     {
-        AdminMiddleware::check();
         $body = json_decode(file_get_contents('php://input'), true) ?? [];
 
         if (empty($body['name']) || empty($body['slug']) || !isset($body['price'])) {
@@ -47,7 +45,6 @@ class ProductController
 
     public function updateProduct(int $id): never
     {
-        AdminMiddleware::check();
         $body = json_decode(file_get_contents('php://input'), true) ?? [];
 
         if (empty($body['name']) || empty($body['slug']) || !isset($body['price'])) {
@@ -66,7 +63,6 @@ class ProductController
 
     public function deleteProduct(int $id): never
     {
-        AdminMiddleware::check();
         $existing = $this->model->findById($id);
         if (!$existing) {
             json_error('Produto não encontrado.', 404);

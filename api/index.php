@@ -4,12 +4,10 @@ require __DIR__ . '/src/bootstrap.php';
 require __DIR__ . '/src/Models/Product.php';
 require __DIR__ . '/src/Models/Order.php';
 require __DIR__ . '/src/Models/Review.php';
-require __DIR__ . '/src/Middleware/AdminMiddleware.php';
 require __DIR__ . '/src/Controllers/ProductController.php';
 require __DIR__ . '/src/Controllers/CheckoutController.php';
 require __DIR__ . '/src/Controllers/OrderController.php';
 require __DIR__ . '/src/Controllers/ReviewController.php';
-require __DIR__ . '/src/Controllers/AuthController.php';
 
 // CORS
 $origin  = $_SERVER['HTTP_ORIGIN'] ?? '';
@@ -59,16 +57,6 @@ if ($method === 'GET' && preg_match('#^/reviews/(\d+)$#', $path, $m)) {
 // POST /reviews/{product_id}
 if ($method === 'POST' && preg_match('#^/reviews/(\d+)$#', $path, $m)) {
     (new ReviewController($reviewModel))->create((int) $m[1]);
-}
-
-// POST /admin/login
-if ($method === 'POST' && $path === '/admin/login') {
-    (new AuthController())->login();
-}
-
-// POST /admin/logout
-if ($method === 'POST' && $path === '/admin/logout') {
-    (new AuthController())->logout();
 }
 
 // GET /admin/products
