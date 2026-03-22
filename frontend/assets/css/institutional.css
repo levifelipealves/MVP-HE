@@ -1,0 +1,158 @@
+/* institutional.css — shared styles for static pages (about, privacy, terms, returns) */
+
+.institutional-page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 4rem;
+}
+
+.institutional-breadcrumb {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.institutional-breadcrumb a {
+    color: #6b7280;
+    text-decoration: none;
+}
+
+.institutional-breadcrumb a:hover {
+    color: var(--color-primary, #1e3a5f);
+}
+
+.institutional-breadcrumb span {
+    color: #374151;
+    font-weight: 600;
+}
+
+.institutional-card {
+    background: #fff;
+    border-radius: 1rem;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 1px 6px rgba(0,0,0,.05);
+    padding: 2.5rem 3rem;
+}
+
+@media (max-width: 640px) {
+    .institutional-card { padding: 1.5rem 1.25rem; }
+}
+
+.institutional-title {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--color-primary, #1e3a5f);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+}
+
+.institutional-divider {
+    width: 4rem;
+    height: 4px;
+    background: #24e0c3;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+}
+
+.institutional-body {
+    color: #374151;
+    line-height: 1.7;
+    font-size: 0.875rem;
+}
+
+.institutional-body p {
+    margin: 0 0 1rem;
+}
+
+.institutional-section {
+    margin-bottom: 2rem;
+}
+
+.institutional-section-title {
+    font-size: 0.875rem;
+    font-weight: 900;
+    color: var(--color-primary, #1e3a5f);
+    text-transform: uppercase;
+    margin: 0 0 0.75rem;
+}
+
+.institutional-body ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.institutional-body a {
+    color: var(--color-primary, #1e3a5f);
+    font-weight: 700;
+}
+
+.institutional-body a:hover {
+    text-decoration: underline;
+}
+
+.institutional-footer-note {
+    font-size: 0.7rem;
+    color: #9ca3af;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+    margin-top: 1rem;
+}
+
+/* about.php specific */
+.about-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+}
+
+@media (max-width: 640px) {
+    .about-values-grid { grid-template-columns: 1fr; }
+}
+
+.about-values-card {
+    background: #f4f4f4;
+    border-radius: 0.75rem;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+}
+
+.about-values-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.about-values-title {
+    font-size: 0.75rem;
+    font-weight: 900;
+    color: var(--color-primary, #1e3a5f);
+    text-transform: uppercase;
+    margin: 0 0 0.5rem;
+}
+
+.about-values-text {
+    font-size: 0.8rem;
+    color: #4b5563;
+}
+
+/* returns.php specific */
+.returns-contact-box {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    background: #f0f7ff;
+    border: 1px solid rgba(30,58,95,.15);
+    border-radius: 0.75rem;
+    font-size: 0.85rem;
+}
+
+.returns-contact-box strong {
+    color: var(--color-primary, #1e3a5f);
+}

@@ -18,7 +18,15 @@ $path  = ($path === '') ? '/' : $path;
 $slug  = '';
 $page  = null;
 
-$routes = ['/' => 'homeView', '/cart' => 'cartView', '/checkout' => 'checkoutView'];
+$routes = [
+    '/'        => 'homeView',
+    '/cart'    => 'cartView',
+    '/checkout'=> 'checkoutView',
+    '/about'   => 'aboutView',
+    '/privacy' => 'privacyView',
+    '/terms'   => 'termsView',
+    '/returns' => 'returnsView',
+];
 
 if (isset($routes[$path])) {
     $page = $routes[$path];

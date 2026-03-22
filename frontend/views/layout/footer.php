@@ -22,10 +22,10 @@ $instaLink = $cfg['store_instagram'] ?: '#';
                     <div>
                         <h3 class="footer-section-title">Institucional</h3>
                         <ul class="footer-list">
-                            <li><a href="<?= $base ?>/quem-somos">Quem Somos</a></li>
-                            <li><a href="<?= $base ?>/politicas-de-trocas">Políticas de Trocas</a></li>
-                            <li><a href="<?= $base ?>/politicas-de-privacidade">Privacidade</a></li>
-                            <li><a href="<?= $base ?>/termos-de-uso">Termos de Uso</a></li>
+                            <li><a href="<?= $base ?>/about">Quem Somos</a></li>
+                            <li><a href="<?= $base ?>/returns">Políticas de Trocas</a></li>
+                            <li><a href="<?= $base ?>/privacy">Privacidade</a></li>
+                            <li><a href="<?= $base ?>/terms">Termos de Uso</a></li>
                         </ul>
                     </div>
 
