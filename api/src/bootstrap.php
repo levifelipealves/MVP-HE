@@ -105,6 +105,29 @@ set_exception_handler(function (Throwable $e): void {
 });
 
 // ---------------------------------------------------------------------------
+// Shutdown handler — captura erros fatais (E_ERROR, memory limit, etc.)
+// ---------------------------------------------------------------------------
+register_shutdown_function(function (): void {
+    $err = error_get_last();
+    if ($err === null) return;
+
+    $fatalTypes = E_ERROR | E_PARSE | E_CORE_ERROR | E_COMPILE_ERROR | E_USER_ERROR;
+    if (!($err['type'] & $fatalTypes)) return;
+
+    $e = new ErrorException($err['message'], 0, $err['type'], $err['file'], $err['line']);
+    _writeLog($e);
+
+    if (!headers_sent()) {
+        http_response_code(500);
+        header('Content-Type: application/json; charset=UTF-8');
+    }
+    echo json_encode(
+        ['error' => 'Erro interno (Fatal). Tente novamente.'],
+        JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+    );
+});
+
+// ---------------------------------------------------------------------------
 // Load .env
 // ---------------------------------------------------------------------------
 foreach (file(API_ROOT . '/../.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [] as $line) {
