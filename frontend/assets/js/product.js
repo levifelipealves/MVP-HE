@@ -1,4 +1,4 @@
-// produto.js — detalhe do produto
+// product.js — product detail view
 
 (function () {
     const API  = window.API_URL;

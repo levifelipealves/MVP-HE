@@ -18,15 +18,15 @@ $path  = ($path === '') ? '/' : $path;
 $slug  = '';
 $page  = null;
 
-$routes = ['/' => 'home', '/carrinho' => 'carrinho', '/checkout' => 'checkout'];
+$routes = ['/' => 'homeView', '/cart' => 'cartView', '/checkout' => 'checkoutView'];
 
 if (isset($routes[$path])) {
     $page = $routes[$path];
-} elseif (preg_match('#^/produto/([a-z0-9][a-z0-9\-]{0,199})$#', $path, $m)) {
-    $page = 'produto';
+} elseif (preg_match('#^/product/([a-z0-9][a-z0-9\-]{0,199})$#', $path, $m)) {
+    $page = 'productView';
     $slug = $m[1];
-} elseif (preg_match('#^/pedido/(\d+)$#', $path, $m)) {
-    $page = 'confirmado';
+} elseif (preg_match('#^/order/(\d+)$#', $path, $m)) {
+    $page = 'confirmedView';
     $order_id = (int) $m[1];
 } elseif ($path === '/admin/products') {
     $page = 'admin/products';

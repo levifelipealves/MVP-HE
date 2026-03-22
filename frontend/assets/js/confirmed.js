@@ -1,4 +1,4 @@
-// confirmado.js — resumo do pedido confirmado
+// confirmed.js — order confirmed view
 
 document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('order-summary');

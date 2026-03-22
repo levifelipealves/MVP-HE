@@ -1,4 +1,4 @@
-// carrinho.js — visualização e edição do carrinho
+// cartView.js — cart page view
 
 document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('cart-container');

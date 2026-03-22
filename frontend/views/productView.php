@@ -4,15 +4,15 @@ $product = $res ? (json_decode($res, true)['data'] ?? null) : null;
 
 $title            = $product ? htmlspecialchars($product['name']) . ' | Geek Heroes' : 'Produto | Geek Heroes';
 $meta_description = $product ? mb_substr(strip_tags($product['description'] ?? ''), 0, 160) : '';
-$canonical        = 'https://geekheroes.com.br/produto/' . htmlspecialchars($slug);
+$canonical        = 'https://geekheroes.com.br/product/' . htmlspecialchars($slug);
 $og = $product ? [
     'title'       => $product['name'],
     'description' => $meta_description,
     'image'       => $product['image'] ?? '',
     'type'        => 'product',
 ] : null;
-$page_css = 'produto.css';
-$page_js  = 'produto.js';
+$page_css = 'product.css';
+$page_js  = 'product.js';
 require __DIR__ . '/layout/header.php';
 ?>
 

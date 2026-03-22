@@ -1,7 +1,7 @@
 <?php
 $title    = 'Pedido Confirmado | Geek Heroes';
-$page_css = 'confirmado.css';
-$page_js  = 'confirmado.js';
+$page_css = 'confirmed.css';
+$page_js  = 'confirmed.js';
 require __DIR__ . '/layout/header.php';
 ?>
 <div id="order-summary" data-order-id="<?= (int)($order_id ?? 0) ?>">

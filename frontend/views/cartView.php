@@ -1,7 +1,7 @@
 <?php
 $title    = 'Carrinho | Geek Heroes';
-$page_css = 'carrinho.css';
-$page_js  = 'carrinho.js';
+$page_css = 'cart.css';
+$page_js  = 'cartView.js';
 require __DIR__ . '/layout/header.php';
 ?>
 <div class="cart-page">
