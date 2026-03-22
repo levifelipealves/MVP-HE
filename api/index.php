@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 require __DIR__ . '/src/bootstrap.php';
+require __DIR__ . '/src/helpers.php';
 require __DIR__ . '/src/Models/Product.php';
 require __DIR__ . '/src/Models/Order.php';
 require __DIR__ . '/src/Models/Review.php';

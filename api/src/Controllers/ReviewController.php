@@ -19,7 +19,15 @@ class ReviewController
 
     public function create(int $productId): never
     {
-        $body    = json_decode(file_get_contents('php://input'), true) ?? [];
+        $body = json_decode(file_get_contents('php://input'), true) ?? [];
+        $this->createInput($productId, $body);
+    }
+
+    /**
+     * Separated from create() to allow unit testing without php://input.
+     */
+    public function createInput(int $productId, array $body): never
+    {
         $name    = trim($body['author_name'] ?? '');
         $rating  = (int) ($body['rating'] ?? 0);
         $comment = trim($body['comment'] ?? '') ?: null;

@@ -3,5 +3,21 @@
     "description": "Geek Heroes Store MVP",
     "require": {
         "php": "^8.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "phpunit": {
+            "configuration": "phpunit.xml"
+        }
     }
 }

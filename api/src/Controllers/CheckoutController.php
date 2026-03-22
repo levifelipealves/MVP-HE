@@ -10,7 +10,15 @@ class CheckoutController
     public function process(): never
     {
         $body = json_decode(file_get_contents('php://input'), true) ?? [];
+        $this->processInput($body);
+    }
 
+    /**
+     * Separated from process() to allow unit testing without php://input.
+     * All validation and DB work happens here.
+     */
+    public function processInput(array $body): never
+    {
         $name    = trim($body['name']    ?? '');
         $email   = trim($body['email']   ?? '');
         $address = trim($body['address'] ?? '');
